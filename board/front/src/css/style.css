@@ -1,0 +1,52 @@
+body{
+    margin:0;
+    padding:0;
+    background-color: mistyrose;
+}
+
+ul{
+    list-style: none;
+
+}
+
+a{
+    text-decoration: none;
+
+}
+
+
+.header-list {
+    display: flex;
+    gap:3rem;
+    position: relative;
+    
+}
+
+.link-logo{
+   padding-left: 50%;
+   transform: translateX(-10%);
+}
+
+.link-home{
+    position: absolute;
+    top:0;
+    right:15rem;
+}
+
+.link-login{
+    position: absolute;
+    top:0;
+    right:5rem;
+}
+
+.link-login a{
+    color:lightcoral;
+   
+}
+
+.link-home a{
+    color:lightcoral;
+    
+
+}
+
