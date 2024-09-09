@@ -5,6 +5,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 import Root from './pages/Root';
 import { Login } from './pages/Login';
+import Signup from './pages/Signup';
 
 function App() {
     const router = createBrowserRouter([
@@ -12,7 +13,8 @@ function App() {
         path:'/',
         element : <Root/>,
         children: [
-        {path: '/login',element:<Login/> }
+        {path: '/login',element:<Login/> },
+        {path:'/signup',element:<Signup/>}
         
         ]
       },
