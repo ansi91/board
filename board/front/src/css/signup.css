@@ -1,0 +1,87 @@
+/* 기본 스타일 (모바일 우선 접근법) */
+.signup {
+    padding: 15px; /* 모바일에서는 여백을 줄임 */
+    text-align: center;
+}
+
+.all-agree, .service-desc, .personal-desc {
+    width: 100%; /* 모바일에서는 전체 너비를 사용 */
+    margin: 0 auto;
+}
+
+.service-desc, .personal-desc {
+    height: 150px; /* 모바일에서는 높이를 줄임 */
+    overflow: auto; /* 스크롤을 자동으로 표시 */
+}
+
+.step1-next-btn {
+    margin-top: 10px;
+    width: 100%; /* 모바일에서는 전체 너비를 사용 */
+    max-width: 320px; /* 최대 너비를 설정 */
+    height: 45px;
+    font-size: 1rem; /* 폰트 크기를 줄임 */
+    color: white;
+    font-weight: bold;
+    background-color: tomato;
+    border: 0;
+}
+
+.signup-step2-container{
+    margin:0 auto;
+    text-align: center;
+}
+
+.must-input{
+    color:red;
+}
+
+.post-code{
+    position: absolute;
+    top:7rem;
+    right: 5rem;
+}
+
+
+
+
+
+/* 태블릿 화면에 대한 스타일 */
+@media (min-width: 768px) {
+    .signup {
+        padding: 20px; /* 태블릿에서는 여백을 다소 확대 */
+    }
+
+    .all-agree, .service-desc, .personal-desc {
+        width: 90%; /* 태블릿에서는 90% 너비 사용 */
+    }
+
+    .service-desc, .personal-desc {
+        height: 180px; /* 태블릿에서는 높이를 약간 늘림 */
+    }
+
+    .step1-next-btn {
+        width: 80%; /* 태블릿에서는 버튼 너비를 80%로 설정 */
+        max-width: 350px; /* 최대 너비를 태블릿에 맞게 설정 */
+        font-size: 1.1rem; /* 폰트 크기를 약간 증가 */
+    }
+}
+
+/* 데스크탑 화면에 대한 스타일 */
+@media (min-width: 1024px) {
+    .signup {
+        padding: 30px; /* 데스크탑에서는 여백을 원래 크기로 설정 */
+    }
+
+    .all-agree, .service-desc, .personal-desc {
+        width: 1200px; /* 데스크탑에서는 원래 너비 사용 */
+    }
+
+    .service-desc, .personal-desc {
+        height: 200px; /* 데스크탑에서는 원래 높이 사용 */
+    }
+
+    .step1-next-btn {
+        width: 316px; /* 데스크탑에서는 원래 너비 사용 */
+        font-size: 1.2rem; /* 폰트 크기를 원래 크기로 설정 */
+    }
+}

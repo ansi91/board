@@ -1,52 +1,119 @@
-body{
-    margin:0;
-    padding:0;
+body {
+    margin: 0;
+    padding: 0;
     background-color: mistyrose;
 }
 
-ul{
+p{
+    margin: 5px 0 5px 0 ;
+}
+
+ul {
     list-style: none;
-
 }
 
-a{
+a {
     text-decoration: none;
-
 }
 
-
+/* 기본 스타일 (모바일 우선 접근법) */
 .header-list {
     display: flex;
-    gap:3rem;
+    flex-direction: column; /* 모바일에서는 세로 정렬 */
+    gap: 1rem; /* 모바일에서는 간격을 줄임 */
     position: relative;
-    
+    padding: 1rem; /* 모바일에서는 패딩을 줄임 */
 }
 
-.link-logo{
-   padding-left: 50%;
-   transform: translateX(-10%);
+.link-logo {
+    padding-left: 0; /* 모바일에서는 패딩을 제거 */
+    transform: translateX(0); /* 모바일에서는 위치 조정을 제거 */
+    text-align: center; /* 모바일에서는 가운데 정렬 */
 }
 
-.link-home{
-    position: absolute;
-    top:0;
-    right:15rem;
+.link-home, .link-login {
+    position: relative; /* 모바일에서는 위치를 상대적으로 조정 */
+    margin: 0.5rem 0; /* 모바일에서는 마진을 줄임 */
 }
 
-.link-login{
-    position: absolute;
-    top:0;
-    right:5rem;
+.link-home a, .link-login a {
+    color: lightcoral;
 }
 
-.link-login a{
-    color:lightcoral;
-   
+@media (min-width : 640px){
+    .header-list {
+        flex-direction: row; /* 태블릿에서는 가로 정렬 */
+        gap: 1rem; /* 태블릿에서는 간격을 다소 확대 */
+        padding: 1rem; /* 태블릿에서는 패딩을 증가 */
+    }
+
+    .link-logo {
+        padding-left: 25%; /* 태블릿에서는 패딩을 조정 */
+        transform: translateX(-5%); /* 태블릿에서는 위치 조정을 다소 변경 */
+    }
+
+    .link-home {
+        position: absolute;
+        top: 0;
+        right: 7rem; /* 태블릿에서는 오른쪽 위치를 조정 */
+    }
+
+    .link-login {
+        position: absolute;
+        top: 0;
+        right: 0.5rem; /* 태블릿에서는 오른쪽 위치를 조정 */
+    }
 }
 
-.link-home a{
-    color:lightcoral;
-    
 
+/* 태블릿 화면에 대한 스타일 */
+@media (min-width: 768px) {
+    .header-list {
+        flex-direction: row; /* 태블릿에서는 가로 정렬 */
+        gap: 2rem; /* 태블릿에서는 간격을 다소 확대 */
+        padding: 1.5rem; /* 태블릿에서는 패딩을 증가 */
+    }
+
+    .link-logo {
+        padding-left: 30%; /* 태블릿에서는 패딩을 조정 */
+        transform: translateX(-5%); /* 태블릿에서는 위치 조정을 다소 변경 */
+    }
+
+    .link-home {
+        position: absolute;
+        top: 0;
+        right: 10rem; /* 태블릿에서는 오른쪽 위치를 조정 */
+    }
+
+    .link-login {
+        position: absolute;
+        top: 0;
+        right: 3rem; /* 태블릿에서는 오른쪽 위치를 조정 */
+    }
 }
 
+/* 데스크탑 화면에 대한 스타일 */
+@media (min-width: 1024px) {
+    .header-list {
+        flex-direction: row; /* 데스크탑에서는 가로 정렬 유지 */
+        gap: 3rem; /* 데스크탑에서는 원래 간격 유지 */
+        padding: 2rem; /* 데스크탑에서는 패딩을 원래 크기로 설정 */
+    }
+
+    .link-logo {
+        padding-left: 50%; /* 데스크탑에서는 원래 패딩 유지 */
+        transform: translateX(-10%); /* 데스크탑에서는 원래 위치 조정 유지 */
+    }
+
+    .link-home {
+        position: absolute;
+        top: 0;
+        right: 15rem; /* 데스크탑에서는 원래 위치 유지 */
+    }
+
+    .link-login {
+        position: absolute;
+        top: 0;
+        right: 5rem; /* 데스크탑에서는 원래 위치 유지 */
+    }
+}
