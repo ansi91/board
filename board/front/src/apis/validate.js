@@ -37,14 +37,45 @@ export const changePhoneNumber1 = (e, refs, handleChange) => {
 
 export const validateCheckStep2 = (refs,next) => {
     let checkFlag = true;
-    if(refs.userIdRef.current){
-        console.log(refs.userIdRef.current.value);
+    console.log(refs.userIdRef.current.value);
+    
+    if(refs.userIdRef.current.value === ""){
+        alert("아이디를 입력해주세요")
+        refs.userIdRef.current.focus()
+        checkFlag = false;
+    }else if(refs.userPassRef.current.value === "" ) {
+        alert("비밀번호를 입력해주세요")
+        refs.userPassRef.current.focus()
+        checkFlag = false;
+    }else if(refs.userPassCheckRef.current.value === "") {
+        alert("비밀번호 확인을 입력해주세요")
+        refs.userPassCheckRef.current.focus()
+        checkFlag = false;
+    }else if(refs.userNameRef.current.value === ""){
+        alert("이름을 입력해주세요")
+        refs.userNameRef.current.focus();
+        checkFlag = false;
+
+    }else if(refs.emailIdRef.current.value === ""){
+        alert("이메일을 입력해주세요")
+        refs.emailIdRef.current.focus()
+        checkFlag = false;
+    
+
+
+    }else if(refs.emailDomainRef.current.value === ""){
+        alert("이메일 도메인을 입력해주세요")
+        refs.emailDomainRef.current.focus()
+        checkFlag = false;
+    
+    }else if(refs.phoneNumber2Ref.current.value === ""){
+        alert("전화번호를 입력해주세요")
+        refs.phoneNumber2Ref.current.focus()
+        checkFlag = false;
+    
         
-        
-    }else{
-        console.log("널값");
-        
-    }
+    }    
+    
     
         
     return checkFlag;

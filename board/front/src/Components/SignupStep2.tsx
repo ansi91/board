@@ -1,6 +1,7 @@
 import {changeEmailDomain,changePhoneNumber1,validateCheckStep2} from '../apis/validate.js'
 import { useRef, useState } from 'react'
 import DaumPostcode from 'react-daum-postcode'
+import axios from 'axios';
 interface FormData {
     service:boolean,
     personal:boolean,
@@ -110,6 +111,27 @@ interface SignupStep2Props{
         }
     }
 
+
+    const handleIdCheck = () => {
+
+        const url = `http://127.0.0.1:8080/member/idcheck`
+        axios({
+            method:'post',
+            url : url,
+            data : {userId : formData.userId}
+        }).then(result => 
+            {if(result.data === 1) {
+                console.log("이미 존재하는 아이디입니다");
+            }else {
+                console.log("사용 가능한 아이디 입니다.");
+                
+            }
+
+        })
+        
+    }
+
+
     return (
         <div className="signup-step2-container">
             <h1>SHOPPY SIGNUP</h1>
@@ -123,12 +145,16 @@ interface SignupStep2Props{
                          value={formData.userId}
                          onChange={handleChange}
                          ref={refs.userIdRef}/>
+                    <button type="button"
+                            onClick={handleIdCheck}>ID 확인
+
+                    </button>
                 </li>
                 <li>
                     <span className="pw-label">비밀번호</span><span className="must-input">*</span>
                     <input  className="pw-input"
                             type="password"
-                            name="userPw"
+                            name="userPass"
                             value={formData.userPass}
                             onChange={handleChange}
                             ref={refs.userPassRef}/>
@@ -138,7 +164,7 @@ interface SignupStep2Props{
                     <input  className="pw-input-check"
                             type="password"
                             value={formData.userPassCheck}
-                            name="userPw"
+                            name="userPassCheck"
                             onChange={handleChange}
                             ref={refs.userPassCheckRef}/>
                 </li>
@@ -147,7 +173,7 @@ interface SignupStep2Props{
                     <input  className="name-input"
                             type="userName"
                             value={formData.userName}
-                            name="userPw"
+                            name="userName"
                             onChange={handleChange}
                             ref={refs.userNameRef}/>
                 </li>
@@ -158,6 +184,7 @@ interface SignupStep2Props{
                             value={formData.emailId}
                             name="emailId"
                             onChange={handleChange}
+                            ref={refs.emailIdRef}
                             /> @
                     <input  className="email-input"
                     type="text"
