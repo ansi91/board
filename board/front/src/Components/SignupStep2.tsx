@@ -1,4 +1,4 @@
-import {changeEmailDomain,changePhoneNumber1,validateCheckStep2} from '../apis/validate.js'
+import {changeEmailDomain,changePhoneNumber1,validateCheckStep2, passwordCheck, idValueCheck} from '../apis/validate.js'
 import { useRef, useState } from 'react'
 import DaumPostcode from 'react-daum-postcode'
 import axios from 'axios';
@@ -103,7 +103,23 @@ interface SignupStep2Props{
 
     const handleSubmit = () => {
         if(validateCheckStep2(refs)){
-            console.log(11);
+            if(passwordCheck(refs)){
+               const url = `http://127.0.0.1:8080/member/signup` 
+               axios({
+                method : 'post',
+                url : url,
+                data : formData
+               })
+               .then(result => {
+                if(result.data.cnt === 1 ){
+                    alert("가입 성공")
+                }else{
+                    alert("가입실패")
+                }
+               })
+
+            }
+            next()
         
         }else{
             console.log(22);
@@ -113,28 +129,40 @@ interface SignupStep2Props{
 
 
     const handleIdCheck = () => {
-
-        const url = `http://127.0.0.1:8080/member/idcheck`
-        axios({
-            method:'post',
-            url : url,
-            data : {userId : formData.userId}
-        }).then(result => 
-            {if(result.data === 1) {
-                console.log("이미 존재하는 아이디입니다");
-            }else {
-                console.log("사용 가능한 아이디 입니다.");
-                
-            }
-
-        })
+        if(idValueCheck(refs)){
+            const url = `http://127.0.0.1:8080/member/idcheck`
+            axios({
+                method:'post',
+                url : url,
+                data : {userId : formData.userId}
+            }).then(result => 
+                    
+                    
+                {
+                    console.log(result.data);
+                    if(result.data.cnt === 1  ) {
+                    console.log("이미 존재하는 아이디입니다");
+                    if(refs.userIdRef.current !== null){
+                    refs.userIdRef.current.focus()
+                }else{
+                    
+                }
+                }else {
+                    console.log("사용 가능한 아이디 입니다.");
+                    
+                }
+    
+            })
+        }
+       
         
     }
 
+    
 
     return (
         <div className="signup-step2-container">
-            <h1>SHOPPY SIGNUP</h1>
+            <h1>SIGNUP</h1>
             <h3>정보입력</h3>
             <p>회원가입에 필요한 정보를 입력합니다.</p>
             <ul className="signup-info">

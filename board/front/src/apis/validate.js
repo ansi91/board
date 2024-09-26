@@ -34,6 +34,28 @@ export const changePhoneNumber1 = (e, refs, handleChange) => {
     
 }
 
+export const passwordCheck = (refs) => {
+    let checkFlag = true
+
+    if(refs.userPassRef.current.value === refs.userPassCheckRef.current.value){
+        alert("비밀번호가 일치 합니다")
+        
+    }else{
+        alert("비밀번호가 다릅니다")
+        checkFlag = false
+    }
+    return checkFlag
+}
+
+export const idValueCheck = (refs) => {
+    let checkFlag = true
+    if(refs.userIdRef.current.value === ''){
+        alert("ID를 입력 후 체크해주세요")
+        checkFlag = false;
+    }
+    return checkFlag
+}
+
 
 export const validateCheckStep2 = (refs,next) => {
     let checkFlag = true;
@@ -74,6 +96,8 @@ export const validateCheckStep2 = (refs,next) => {
         checkFlag = false;
     
         
+    }else{
+      
     }    
     
     
