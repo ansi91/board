@@ -1,6 +1,6 @@
 import {db} from '../db/database_mysql80.js'
 import bcryfpt from 'bcrypt' 
-
+import jwt from 'jsonwebtoken'
 export const idCheck = (userId) =>{
 
     const sql = `SELECT count(user_id) as cnt from board_member where user_id  = ?  `
@@ -60,3 +60,42 @@ export const signup = async (formData) => {
 
     return {"cnt" : result_rows}
 } 
+
+export const getLogin = async (userId, userPass) => { 
+    
+    
+    let login_result = 0;
+    let login_token = '';
+    
+    const sql = `
+        select  count(user_id) cnt, 
+                any_value(user_pass) user_pass
+              from board_member
+              where user_id = ?
+    `;
+    try {
+      const [result] = await db.execute(sql, [userId]);
+  
+      if(result[0].cnt === 1){      
+      
+        
+        if(bcryfpt.compareSync(userPass, result[0].user_pass)) {
+            console.log('22');
+            
+          login_result = 1;      
+  
+          //토큰 생성
+          login_token = jwt.sign({userId : userId}, 'cmVhY3QxMjM0');
+          console.log('token-->> ', login_token);
+        }
+      } 
+    } catch (error) {}
+  
+    // console.log('cnt -->', login_result);
+    // console.log('login_token -->', login_token);
+  
+    return { 
+      cnt : login_result,
+      token : login_token
+    };
+  }
