@@ -31,12 +31,12 @@ a {
     text-align: center; /* 모바일에서는 가운데 정렬 */
 }
 
-.link-home, .link-login {
+.link-home, .link-login, .link-board {
     position: relative; /* 모바일에서는 위치를 상대적으로 조정 */
     margin: 0.5rem 0; /* 모바일에서는 마진을 줄임 */
 }
 
-.link-home a, .link-login a {
+.link-home a, .link-login a, .link-board a {
     color: lightcoral;
 }
 
@@ -59,6 +59,11 @@ a {
     }
 
     .link-login {
+        position: absolute;
+        top: 0;
+        right: 0.5rem; /* 태블릿에서는 오른쪽 위치를 조정 */
+    }
+    .link-board {
         position: absolute;
         top: 0;
         right: 0.5rem; /* 태블릿에서는 오른쪽 위치를 조정 */
@@ -90,6 +95,11 @@ a {
         top: 0;
         right: 3rem; /* 태블릿에서는 오른쪽 위치를 조정 */
     }
+    .link-board {
+        position: absolute;
+        top: 0;
+        right: 0.5rem; /* 태블릿에서는 오른쪽 위치를 조정 */
+    }
 }
 
 /* 데스크탑 화면에 대한 스타일 */
@@ -108,12 +118,17 @@ a {
     .link-home {
         position: absolute;
         top: 0;
-        right: 15rem; /* 데스크탑에서는 원래 위치 유지 */
+        right: 23rem; /* 데스크탑에서는 원래 위치 유지 */
     }
 
     .link-login {
         position: absolute;
         top: 0;
         right: 5rem; /* 데스크탑에서는 원래 위치 유지 */
+    }
+    .link-board {
+        position: absolute;
+        top: 0;
+        right: 13rem; /* 데스크탑에서는 원래 위치 유지 */
     }
 }

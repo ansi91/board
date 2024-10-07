@@ -19,9 +19,11 @@ export default function Header() {
             <div className="header-menu">
                 <ul className="header-list">
                     <li className="link-logo"><h1>Closer's Board</h1></li>
-
+                    <li className="link-board"><Link to="/board"><h1>Board</h1></Link></li>                  
                     {userId ? (
+                      
                         <li className="link-login" onClick={handleLogout}><h1>Logout</h1></li>
+                    
                     ) : (
                         <li className="link-login"><Link to='/login'><h1>Login</h1></Link></li>
                     )}
