@@ -95,4 +95,20 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
+# 상위 디렉터리의 특정 디렉터리들 무시
+../[20240626]shoppy_redux_toolkit/
+../[20240627]shoppy_redux_toolkit.zip
+../[20240627]shoppy_redux_toolkit/
+../basic-redux/
+../dominodomino.zip
+../dominodomino/
+../git project/
+../pesade/
+../prac/
+../react-native/
+../shoppy/
+../shoppy_redux/
+../sql/
+../test/
+
 # End of https://www.toptal.com/developers/gitignore/api/macos,react,visualstudiocode,windows
