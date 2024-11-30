@@ -7,7 +7,7 @@ import Root from './pages/Root';
 import { Login } from './pages/Login';
 import Signup from './pages/Signup';
 import BoardList from './pages/board/BoardList';
-import { BoardWrite } from './pages/board/BoardWrite';
+import BoardWrite  from './pages/board/BoardWrite';
 
 function App() {
     const router = createBrowserRouter([
